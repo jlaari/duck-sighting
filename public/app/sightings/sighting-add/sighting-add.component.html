@@ -1,0 +1,35 @@
+<h1 mat-dialog-title>Add new sighting</h1>
+
+<form [formGroup]="newSightingForm" #form="ngForm" (ngSubmit)="createNewSighting(newSightingForm.value)">   
+    <div mat-dialog-content>       
+        <mat-form-field>
+                <input matInput placeholder="Date" [matDatepicker]="picker" (click)="picker.open()" formControlName="date" required readonly>
+                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+
+        <mat-form-field>           
+            <input matInput placeholder="Time" type="time" formControlName="time" required>
+        </mat-form-field>
+        
+        <mat-form-field>
+            <mat-select placeholder="Species" formControlName="species" required>
+                <mat-option *ngFor="let value of species" [value]="value.name">{{value.name}}</mat-option>
+            </mat-select>
+        </mat-form-field>
+
+        <mat-form-field>
+            <input matInput placeholder="Count" type="number" formControlName="count" minLength="5">
+        </mat-form-field>        
+
+        <mat-form-field class="full-width">
+            <input matInput placeholder="Description" formControlName="description">
+        </mat-form-field>
+    </div>   
+
+    <div mat-dialog-actions>
+        <button mat-raised-button color="primary" type="submit" tabindex="2" [disabled]="!newSightingForm.valid">Add</button>
+        <button mat-button (click)="onCancelClicked()" type="reset" tabindex="-1">Cancel</button>
+    </div>
+    <mat-progress-bar *ngIf="updating" mode="indeterminate"></mat-progress-bar>
+</form>

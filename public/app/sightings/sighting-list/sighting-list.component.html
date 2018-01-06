@@ -1,0 +1,40 @@
+<mat-toolbar color="primary">
+    <mat-toolbar-row>
+        <span>Duck Sightings</span>
+    </mat-toolbar-row>
+</mat-toolbar>
+
+<button class="addSighting" mat-fab (click)="openDialog()">
+        <mat-icon aria-label="Add new sighting">add</mat-icon>
+</button>
+
+<mat-progress-spinner *ngIf="dataSource.loading" class="progress-spinner" [color]="primary" [mode]="indeterminate"></mat-progress-spinner>
+
+<mat-table [dataSource]="dataSource" matSort matSortActive="dateTime" matSortDisableClear matSortDirection="desc">
+        
+    <ng-container matColumnDef="id" class="test">
+        <mat-header-cell *matHeaderCellDef></mat-header-cell>
+        <mat-cell *matCellDef="let sighting">
+            <img src="assets/images/{{sighting.species}}.jpg" alt="{{sighting.species}}" title="{{sighting.species}}" style="height: 50px;" />
+        </mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="dateTime">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> Date </mat-header-cell>
+        <mat-cell *matCellDef="let sighting"> {{sighting.dateTime | date :  "dd.MM.y HH:mm" }} </mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="species">
+        <mat-header-cell *matHeaderCellDef> Species </mat-header-cell>
+        <mat-cell *matCellDef="let sighting"> {{sighting.species}} </mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="count">
+        <mat-header-cell *matHeaderCellDef> Count </mat-header-cell>
+        <mat-cell *matCellDef="let sighting"> {{sighting.count}} </mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="description">
+        <mat-header-cell *matHeaderCellDef> Description </mat-header-cell>
+        <mat-cell *matCellDef="let sighting"> {{sighting.description}} </mat-cell>
+    </ng-container>
+
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+</mat-table>

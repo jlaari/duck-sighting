@@ -1,0 +1,8 @@
+node_modules/
+.DS_Store
+.vscode
+npm-debug.log
+# Elastic Beanstalk Files.editorconfig
+.elasticbeanstalk/*
+!.elasticbeanstalk/*.cfg.yml
+!.elasticbeanstalk/*.global.yml
