@@ -22,3 +22,9 @@ button.addSighting {
   position: absolute;
   left: 50%;
 }
+
+.species > img {
+  height: 50px; 
+  vertical-align:middle;
+  padding-right: 5px;
+}
