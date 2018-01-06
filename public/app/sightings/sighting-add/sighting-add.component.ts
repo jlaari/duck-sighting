@@ -28,7 +28,7 @@ import { Sighting } from "../shared/sighting";
           "date": ["", [Validators.required]],
           "time": ["", [Validators.required]],
           "species": ["", [Validators.required]],
-          "count": ["", [Validators.required, Validators.min(1)]],
+          "count": [1, [Validators.required, Validators.min(1)]],
           "description": ["", ""],
         });
 
