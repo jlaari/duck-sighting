@@ -11,24 +11,25 @@
 <mat-progress-spinner *ngIf="dataSource.loading" class="progress-spinner" [color]="primary" [mode]="indeterminate"></mat-progress-spinner>
 
 <mat-table [dataSource]="dataSource" matSort matSortActive="dateTime" matSortDisableClear matSortDirection="desc">
-        
+    <ng-container matColumnDef="dateTime">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> Date </mat-header-cell>
+        <mat-cell *matCellDef="let sighting"> {{sighting.dateTime | date :  "dd.MM.y HH:mm" }} </mat-cell>
+    </ng-container>
+    
     <ng-container matColumnDef="species">
-        <mat-header-cell *matHeaderCellDef></mat-header-cell>
+        <mat-header-cell *matHeaderCellDef>Species</mat-header-cell>
         <mat-cell *matCellDef="let sighting" class="species">
             <img src="assets/images/{{sighting.species}}.jpg" alt="{{sighting.species}}" title="{{sighting.species}}"/>
             <span>{{sighting.species}}</span>            
         </mat-cell>
     </ng-container>
-    <ng-container matColumnDef="dateTime">
-        <mat-header-cell *matHeaderCellDef mat-sort-header> Date </mat-header-cell>
-        <mat-cell *matCellDef="let sighting"> {{sighting.dateTime | date :  "dd.MM.y HH:mm" }} </mat-cell>
-    </ng-container>
+
     <ng-container matColumnDef="count">
-        <mat-header-cell *matHeaderCellDef> Count </mat-header-cell>
+        <mat-header-cell *matHeaderCellDef>Count</mat-header-cell>
         <mat-cell *matCellDef="let sighting"> {{sighting.count}} </mat-cell>
     </ng-container>
     <ng-container matColumnDef="description">
-        <mat-header-cell *matHeaderCellDef> Description </mat-header-cell>
+        <mat-header-cell *matHeaderCellDef>Description</mat-header-cell>
         <mat-cell *matCellDef="let sighting"> {{sighting.description}} </mat-cell>
     </ng-container>
 

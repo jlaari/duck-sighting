@@ -12,7 +12,7 @@ import { SightingDataSource } from "./sighting-data-source";
 })
 export class SightingListComponent implements OnInit {
     dataSource: SightingDataSource | null;
-    displayedColumns = ["species", "dateTime", "count", "description"];
+    displayedColumns = ["dateTime", "species", "count", "description"];
     loading = true;
 
     @ViewChild(MatSort) sort: MatSort;
