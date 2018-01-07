@@ -67,11 +67,20 @@ import * as moment from "moment";
 
 export const inFuture = (dateControlName, timeControlName): ValidatorFn => (control: AbstractControl) => {
     const date = control.get(dateControlName).value;
-    const time = moment(control.get(timeControlName).value, "HH:mm");
-    const current = moment();
+    const time = control.get(timeControlName).value;
 
-    if (date && date.isSame(current, "day") && time.isAfter(current)) {
-      return  { inFuture: { valid: false } };
+    if (date && time) {
+      const dateTime = moment(new Date(
+        date.year(),
+        date.month(),
+        date.date(),
+        time.split(":")[0],
+        time.split(":")[1],
+      ));
+      const current = moment();
+      if (dateTime.isAfter(current)) {
+        return  { inFuture: { valid: false } };
+      }
     }
 
     return null;
