@@ -15,6 +15,8 @@ import { SpeciesService } from "./sightings/shared/species.service";
 import { environment } from "../environments/environment";
 import { MomentDateAdapter } from "@angular/material-moment-adapter";
 import { DateAdapter, MAT_DATE_FORMATS, MAT_DATE_LOCALE } from "@angular/material/core";
+import { MomentModule } from "angular2-moment";
+
 
 export const MOMENT_FORMATS = {
   parse: {
@@ -37,6 +39,7 @@ export const MOMENT_FORMATS = {
     MaterialModule,
     BrowserAnimationsModule,
     ReactiveFormsModule,
+    MomentModule,
     // Hack to load HttpClientModule twice in production and in memory data service in development
     environment.production ? HttpClientModule : HttpClientInMemoryWebApiModule.forRoot(
       InMemoryDataService, { dataEncapsulation: false, apiBase: "/" }

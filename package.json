@@ -4,12 +4,12 @@
   "description": "Simpe duck-sightings example app Angular 5 + Angular Material + Node.js + Docker",
   "main": "server.js",
   "scripts": {
-  	"build": "ng build",
+    "build": "ng build",
     "start": "node server.js",
-	"test": "ng test",
-	"lint": "ng lint",
+    "test": "ng test",
+    "lint": "ng lint",
     "docker": "docker build -t duck-sightings . && docker run -i -p 8081:8081 duck-sightings",
-	"dev": "ng serve -open"
+    "dev": "ng serve -open"
   },
   "license": "BSD-3-Clause",
   "author": "Jari Laari",
@@ -29,6 +29,7 @@
     "@angular/router": "~5.0.0",
     "@angular/upgrade": "~5.0.0",
     "angular-in-memory-web-api": "~0.5.0",
+    "angular2-moment": "^1.7.1",
     "body-parser": "1.15.2",
     "core-js": "^2.4.1",
     "cors": "^2.8.1",
