@@ -28,7 +28,7 @@ import { FutureValidator } from "../../shared/future.validator";
     ngOnInit() {
         this.newSightingForm = this.formBuilder.group({
           "date": ["", [Validators.required]],
-          "time": ["", [Validators.required]],
+          "time": ["", [Validators.required, Validators.pattern("^([0-9]|0[0-9]|1[0-9]|2[0-3]):[0-5][0-9]$")]],
           "species": ["", [Validators.required]],
           "count": [1, [Validators.required, Validators.min(1)]],
           "description": ["", ""],
