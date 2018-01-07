@@ -1,13 +1,12 @@
 import { Component, OnInit} from "@angular/core";
 import { MatDialogRef } from "@angular/material/dialog";
-import { FormBuilder, FormGroup, Validators, ValidatorFn, AbstractControl } from "@angular/forms";
+import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 
 import { SpeciesService } from "../shared/species.service";
 import { Species } from "../shared/species";
 import { SightingService } from "../shared/sighting.service";
 import { Sighting } from "../shared/sighting";
-
-import * as moment from "moment";
+import { FutureValidator } from "../../shared/future.validator";
 
 @Component({
     templateUrl: "./sighting-add.component.html",
@@ -34,7 +33,7 @@ import * as moment from "moment";
           "count": [1, [Validators.required, Validators.min(1)]],
           "description": ["", ""],
         }, {
-          validator: inFuture("date", "time")
+          validator: FutureValidator("date", "time")
         });
 
       this.speciesService.get().subscribe((species: Array<Species>) => {
@@ -64,24 +63,3 @@ import * as moment from "moment";
         });
     }
   }
-
-export const inFuture = (dateControlName, timeControlName): ValidatorFn => (control: AbstractControl) => {
-    const date = control.get(dateControlName).value;
-    const time = control.get(timeControlName).value;
-
-    if (date && time) {
-      const dateTime = moment(new Date(
-        date.year(),
-        date.month(),
-        date.date(),
-        time.split(":")[0],
-        time.split(":")[1],
-      ));
-      const current = moment();
-      if (dateTime.isAfter(current)) {
-        return  { inFuture: { valid: false } };
-      }
-    }
-
-    return null;
-};
