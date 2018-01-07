@@ -8,7 +8,7 @@
         <mat-icon aria-label="Add new sighting">add</mat-icon>
 </button>
 
-<mat-progress-spinner *ngIf="dataSource.loading" class="progress-spinner" [color]="primary" [mode]="indeterminate"></mat-progress-spinner>
+<mat-spinner *ngIf="dataSource.loading" class="progress-spinner" ></mat-spinner>
 
 <mat-table [dataSource]="dataSource" matSort matSortActive="dateTime" matSortDisableClear matSortDirection="desc">
     <ng-container matColumnDef="dateTime">
