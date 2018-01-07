@@ -15,7 +15,7 @@ export const FutureValidator = (dateControlName, timeControlName): ValidatorFn =
       ));
       const current = moment();
       if (dateTime.isAfter(current)) {
-        return  { inFuture: { valid: false } };
+        return  { future: { valid: false } };
       }
     }
 
