@@ -15,6 +15,7 @@ import { Sighting } from "../shared/sighting";
     newSightingForm: FormGroup;
     species: Species[];
     updating: Boolean;
+    maxDate = new Date();
 
     constructor(
         private sightingService: SightingService,
