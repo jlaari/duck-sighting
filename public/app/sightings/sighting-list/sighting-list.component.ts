@@ -21,7 +21,8 @@ export class SightingListComponent implements OnInit {
 
     openDialog(): void {
       const dialogRef = this.dialog.open(SightingAddComponent, {
-        width: "350px"
+        minWidth: "310px",
+        maxWidth: "350px"
       });
     }
 
