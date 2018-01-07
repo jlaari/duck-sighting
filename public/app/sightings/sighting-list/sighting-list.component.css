@@ -29,3 +29,22 @@ button.addSighting {
   vertical-align:middle;
   padding-right: 5px;
 }
+
+@media (max-width: 690px) {
+    .mat-sort-header-container {
+      width: 50%;
+      margin: 0 auto;    
+    }
+
+    mat-table {
+      text-align: center;
+    }
+
+    .species > img {
+        display:none;
+    }
+
+    .mat-header-row, .mat-row {
+      padding: 0 5px;
+    }
+}

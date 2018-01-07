@@ -19,7 +19,7 @@
     <ng-container matColumnDef="species">
         <mat-header-cell *matHeaderCellDef>Species</mat-header-cell>
         <mat-cell *matCellDef="let sighting" class="species">
-            <img src="assets/images/{{sighting.species}}.jpg" alt="{{sighting.species}}" title="{{sighting.species}}"/>
+            <img hide-sm src="assets/images/{{sighting.species}}.jpg" alt="{{sighting.species}}" title="{{sighting.species}}"/>
             <span>{{sighting.species}}</span>            
         </mat-cell>
     </ng-container>

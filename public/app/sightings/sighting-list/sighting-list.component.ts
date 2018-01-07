@@ -1,4 +1,4 @@
-import { Component, ViewChild, OnInit } from "@angular/core";
+import { Component, ViewChild, OnInit, ViewEncapsulation} from "@angular/core";
 import { MatSort} from "@angular/material";
 import { MatDialog } from "@angular/material";
 
