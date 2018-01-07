@@ -12,6 +12,8 @@
             <input matInput placeholder="Time" type="time" formControlName="time" required>
         </mat-form-field>
         
+        <div *ngIf="newSightingForm.hasError('inFuture')" class="error">Time cannot be in future.</div>
+        
         <mat-form-field>
             <mat-select placeholder="Species" formControlName="species" required>
                 <mat-option *ngFor="let value of species" [value]="value.name">{{value.name}}</mat-option>

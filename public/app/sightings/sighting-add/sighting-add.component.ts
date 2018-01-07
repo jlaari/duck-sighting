@@ -1,11 +1,13 @@
 import { Component, OnInit} from "@angular/core";
 import { MatDialogRef } from "@angular/material/dialog";
-import { FormBuilder, FormGroup, Validators } from "@angular/forms";
+import { FormBuilder, FormGroup, Validators, ValidatorFn, AbstractControl } from "@angular/forms";
 
 import { SpeciesService } from "../shared/species.service";
 import { Species } from "../shared/species";
 import { SightingService } from "../shared/sighting.service";
 import { Sighting } from "../shared/sighting";
+
+import * as moment from "moment";
 
 @Component({
     templateUrl: "./sighting-add.component.html",
@@ -31,6 +33,8 @@ import { Sighting } from "../shared/sighting";
           "species": ["", [Validators.required]],
           "count": [1, [Validators.required, Validators.min(1)]],
           "description": ["", ""],
+        }, {
+          validator: inFuture("date", "time")
         });
 
       this.speciesService.get().subscribe((species: Array<Species>) => {
@@ -60,3 +64,15 @@ import { Sighting } from "../shared/sighting";
         });
     }
   }
+
+export const inFuture = (dateControlName, timeControlName): ValidatorFn => (control: AbstractControl) => {
+    const date = control.get(dateControlName).value;
+    const time = moment(control.get(timeControlName).value, "HH:mm");
+    const current = moment();
+
+    if (date && date.isSame(current, "day") && time.isAfter(current)) {
+      return  { inFuture: { valid: false } };
+    }
+
+    return null;
+};
