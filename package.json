@@ -1,7 +1,7 @@
 {
   "name": "duck-sightings",
   "version": "1.0.0",
-  "description": "Simpe duck-sightings example app Angular 5 + Angular Material + Node.js + Docker",
+  "description": "Simple duck-sightings app with Angular 5 + Angular Material + Node.js + Docker",
   "main": "server.js",
   "scripts": {
     "build": "ng build",
