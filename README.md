@@ -2,13 +2,19 @@
 
 Angular 5 + simple node.js backend with in-memory database.
 
+## Requirements
+
+Requires [Node.js](https://nodejs.org/) installed with npm
+
+Tested with Node.js version 8.9.4 and npm v5.6.0.
+
 ## Install & run
 
 ```
 $ npm install
 $ npm run build
 $ npm start
-```
+``` 
 
 ## Commands
 
