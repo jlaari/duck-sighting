@@ -28,7 +28,7 @@ $ npm start
 
 `npm run lint` - Runs the linter (tslint)
 
-`npm run docker` - Builds the docker image and run the container
+`npm run docker` - Builds the docker image and run the container (you need Docker installed)
 
 ## Features
 * List all duck sightings

@@ -8,7 +8,7 @@ RUN chown -R node:node /usr/src/app
 
 USER node
 RUN npm install
-RUN npm run build -- --env=prod
+RUN npm run build
 ENV PORT 8081  
 CMD [ "npm", "start" ]
 EXPOSE 8081
