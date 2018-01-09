@@ -22,7 +22,7 @@ $ npm start
 
 `npm start` - Starts the app. Then, go to `localhost:8081`
 
-`npm dev` - Starts the app with the mocked backend
+`npm run dev` - Starts the app with the mocked backend
 
 `npm run test` - Runs unit tests with karma and jasmine
 
