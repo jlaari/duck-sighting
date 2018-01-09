@@ -3,6 +3,7 @@ import { async, ComponentFixture, TestBed } from "@angular/core/testing";
 import { SightingListComponent } from "./sighting-list.component";
 import { SightingService } from "../shared/sighting.service";
 import { TestsModule } from "../../shared/tests.module";
+import { MomentModule } from "angular2-moment";
 
 describe("SightingListComponent", () => {
   let component: SightingListComponent;
@@ -13,6 +14,7 @@ describe("SightingListComponent", () => {
     TestBed.configureTestingModule({
       imports: [
         TestsModule,
+        MomentModule,
       ],
 
       declarations: [ SightingListComponent ],
